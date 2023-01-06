@@ -23,7 +23,35 @@
 <span class="token plain-text">      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Btn</span></span> <span class="token attr-name">text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Continue<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token plain-text"></span>
 <span class="token plain-text">    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre></div></div><div></div></div><style data-emotion="css 19xe1m">.css-19xe1m{background-color:#000;color:#fff;}@media (max-width: 768px){.css-19xe1m{padding:0 20px;}}</style><div class="css-19xe1m e14hlu8z0"></div><style data-emotion="css uk9u0h">.css-uk9u0h{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;color:#fff;background-color:#000;}@media (max-width: 768px){.css-uk9u0h{font-size:13px;}}</style><footer class="css-uk9u0h e1ssguow0">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/proptypes/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<span class="token punctuation">}</span></code></pre></div>
+<h2>단일 자식 설정</h2>
+<blockquote>
+<p>With <code class="language-text">PropTypes.element</code> you can specify that only a single child can be passed to a component as children.</p>
+</blockquote>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">"prop-types"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">MyComponent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>children<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+MyComponent<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">children</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>element<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<h2>Default Prop Values 설정하기</h2>
+<blockquote>
+<p>You can define default values for your <code class="language-text">props</code> by assigning to the special <code class="language-text">defaultProps</code> property:</p>
+</blockquote>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">const</span> <span class="token function-variable function">Greeting</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token plain-text">Hello, </span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Greeting<span class="token punctuation">.</span>defaultProps <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Stranger"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Greeting</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div></div><div></div></div><style data-emotion="css 19xe1m">.css-19xe1m{background-color:#000;color:#fff;}@media (max-width: 768px){.css-19xe1m{padding:0 20px;}}</style><div class="css-19xe1m e14hlu8z0"></div><style data-emotion="css uk9u0h">.css-uk9u0h{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;color:#fff;background-color:#000;}@media (max-width: 768px){.css-uk9u0h{font-size:13px;}}</style><footer class="css-uk9u0h e1ssguow0">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/proptypes/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
