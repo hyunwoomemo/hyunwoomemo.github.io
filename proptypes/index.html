@@ -51,6 +51,77 @@ Greeting<span class="token punctuation">.</span>defaultProps <span class="token 
 
 <span class="token keyword">const</span> <span class="token function-variable function">App</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Greeting</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<h2>PropTypes 예제</h2>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> PropTypes <span class="token keyword">from</span> <span class="token string">"prop-types"</span><span class="token punctuation">;</span>
+
+MyComponent<span class="token punctuation">.</span>propTypes <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// You can declare that a prop is a specific JS primitive. By default, these</span>
+  <span class="token comment">// are all optional.</span>
+  <span class="token literal-property property">optionalArray</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>array<span class="token punctuation">,</span>
+  <span class="token literal-property property">optionalBool</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>bool<span class="token punctuation">,</span>
+  <span class="token literal-property property">optionalFunc</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">,</span>
+  <span class="token literal-property property">optionalNumber</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">,</span>
+  <span class="token literal-property property">optionalObject</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>object<span class="token punctuation">,</span>
+  <span class="token literal-property property">optionalString</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">,</span>
+  <span class="token literal-property property">optionalSymbol</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>symbol<span class="token punctuation">,</span>
+
+  <span class="token comment">// Anything that can be rendered: numbers, strings, elements or an array</span>
+  <span class="token comment">// (or fragment) containing these types.</span>
+  <span class="token literal-property property">optionalNode</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>node<span class="token punctuation">,</span>
+
+  <span class="token comment">// A React element.</span>
+  <span class="token literal-property property">optionalElement</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>element<span class="token punctuation">,</span>
+
+  <span class="token comment">// You can also declare that a prop is an instance of a class. This uses</span>
+  <span class="token comment">// JS's instanceof operator.</span>
+  <span class="token literal-property property">optionalMessage</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">instanceOf</span><span class="token punctuation">(</span>Message<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// You can ensure that your prop is limited to specific values by treating</span>
+  <span class="token comment">// it as an enum.</span>
+  <span class="token literal-property property">optionalEnum</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOf</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"News"</span><span class="token punctuation">,</span> <span class="token string">"Photos"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// An object that could be one of many types</span>
+  <span class="token literal-property property">optionalUnion</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">oneOfType</span><span class="token punctuation">(</span><span class="token punctuation">[</span>PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">,</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">,</span> PropTypes<span class="token punctuation">.</span><span class="token function">instanceOf</span><span class="token punctuation">(</span>Message<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// An array of a certain type</span>
+  <span class="token literal-property property">optionalArrayOf</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// An object with property values of a certain type</span>
+  <span class="token literal-property property">optionalObjectOf</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">objectOf</span><span class="token punctuation">(</span>PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// An object taking on a particular shape</span>
+  <span class="token literal-property property">optionalObjectWithShape</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">shape</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">color</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>string<span class="token punctuation">,</span>
+    <span class="token literal-property property">fontSize</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>number<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// You can chain any of the above with `isRequired` to make sure a warning</span>
+  <span class="token comment">// is shown if the prop isn't provided.</span>
+  <span class="token literal-property property">requiredFunc</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>func<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+
+  <span class="token comment">// A value of any data type</span>
+  <span class="token literal-property property">requiredAny</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span>any<span class="token punctuation">.</span>isRequired<span class="token punctuation">,</span>
+
+  <span class="token comment">// You can also specify a custom validator. It should return an Error</span>
+  <span class="token comment">// object if the validation fails. Don't `console.warn` or throw, as this</span>
+  <span class="token comment">// won't work inside `oneOfType`.</span>
+  <span class="token function-variable function">customProp</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> propName<span class="token punctuation">,</span> componentName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">matchme</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>props<span class="token punctuation">[</span>propName<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Invalid prop `"</span> <span class="token operator">+</span> propName <span class="token operator">+</span> <span class="token string">"` supplied to"</span> <span class="token operator">+</span> <span class="token string">" `"</span> <span class="token operator">+</span> componentName <span class="token operator">+</span> <span class="token string">"`. Validation failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token comment">// You can also supply a custom validator to `arrayOf` and `objectOf`.</span>
+  <span class="token comment">// It should return an Error object if the validation fails. The validator</span>
+  <span class="token comment">// will be called for each key in the array or object. The first two</span>
+  <span class="token comment">// arguments of the validator are the array or object itself, and the</span>
+  <span class="token comment">// current item's key.</span>
+  <span class="token literal-property property">customArrayProp</span><span class="token operator">:</span> PropTypes<span class="token punctuation">.</span><span class="token function">arrayOf</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">propValue<span class="token punctuation">,</span> key<span class="token punctuation">,</span> componentName<span class="token punctuation">,</span> location<span class="token punctuation">,</span> propFullName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">matchme</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>propValue<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Invalid prop `"</span> <span class="token operator">+</span> propFullName <span class="token operator">+</span> <span class="token string">"` supplied to"</span> <span class="token operator">+</span> <span class="token string">" `"</span> <span class="token operator">+</span> componentName <span class="token operator">+</span> <span class="token string">"`. Validation failed."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div></div><div></div></div><style data-emotion="css 19xe1m">.css-19xe1m{background-color:#000;color:#fff;}@media (max-width: 768px){.css-19xe1m{padding:0 20px;}}</style><div class="css-19xe1m e14hlu8z0"></div><style data-emotion="css uk9u0h">.css-uk9u0h{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;color:#fff;background-color:#000;}@media (max-width: 768px){.css-uk9u0h{font-size:13px;}}</style><footer class="css-uk9u0h e1ssguow0">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/proptypes/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
