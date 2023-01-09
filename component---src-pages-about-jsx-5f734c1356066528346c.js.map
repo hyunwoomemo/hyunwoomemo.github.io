@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-about-jsx-5f734c1356066528346c.js","mappings":"iKAMA,UAJc,KACL,2B","sources":["webpack://gatsby-starter-default/./src/pages/about.jsx"],"sourcesContent":["import React from \"react\";\r\n\r\nconst about = () => {\r\n  return <div>about</div>;\r\n};\r\n\r\nexport default about;\r\n"],"names":[],"sourceRoot":""}
