@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[844],{2635:function(t,e,a){a.r(e);a(7294);var r=a(4080),s=a(917);e.default=t=>{let{data:{site:{siteMetadata:{title:e,description:a,siteUrl:i}},allMarkdownRemark:{edges:l},file:{childImageSharp:{gatsbyImageData:u},publicURL:d}}}=t;return(0,s.tZ)(r.Z,{title:e,description:a,url:i,image:d})}}}]);
+//# sourceMappingURL=component---src-pages-post-jsx-da648bdb407f4cb3b29f.js.map
